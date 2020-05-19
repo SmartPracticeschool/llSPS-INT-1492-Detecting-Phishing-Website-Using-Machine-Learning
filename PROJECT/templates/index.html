@@ -1,0 +1,289 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DETECTION OF PHISHING WEBSITES</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+	<style>
+	.footer {
+		position: fixed;
+  		left: 0;
+  		bottom: 0;
+  		width: 100%;
+  		height: 5%;
+  		background-color: darkblue;
+  		color: white;
+  		text-align: center;
+	}
+
+	.bg-dark {
+		background-color: #42678C!important;
+	}
+	#result {
+		color: #0a1c4ed1;
+	}
+	</style>
+</head>
+<body align="center">
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">DETECTION OF PHISHING WEBSITES USING ML</a>
+        </div>
+    </nav>
+    <div class="container">
+        <div id="content" style="margin-top:2em">
+		<div class="container">
+		  <div class="row">
+			  <h3>PHISHING WEBSITES</h3>
+			  <br>
+			  <p>Phishing is the fraudulent attempt to obtain sensitive information such as usernames, passwords and credit card details by disguising oneself as a trustworthy entity in an electronic communication.Typically carried out by email spoofing or instant messaging,it often directs users to enter personal information at a fake website which matches the look and feel of the legitimate site.
+			  Phishing is an example of social engineering techniques being used to deceive users. Users are often lured by communications purporting to be from trusted parties such as social web sites, auction sites, banks, online payment processors or IT administrators.</p>
+			  <b>PLEASE ENTER THE FOLLOWING PARAMETERS TO DETECT WHETHER THE WEBSITE IS VALID OR INVALID</b>
+			</div>
+		</div></div></div>
+			<br>
+			<form action="http://localhost:5000/login" method="post">
+			<table border=0 align="center">
+			<tr>
+				<th></th>
+				<th width="25%"><u>PARAMETER</u></th>
+				<th align="center" width="25%"><u>VALUE</u></th>
+				<th></th>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td bgcolor="5BDFE6" style="border:1.5px solid"><label>HAVING IP ADDRESS </label></td>
+				<td><input type="text" placeholder="Value can be either -1 or 1" required style="background-color:BBF9EE; border:0.5px solid;width:300;height:35;" name="c1">
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td style="border:1.5px solid"><label>URL Length </label></td>
+				<td><input type="text" placeholder="Value can be either -1, 0 or 1" required style="border:0.5px solid;width:300;height:35;" name="c2">
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td bgcolor="5BDFE6" style="border:1.5px solid"><label>SHORTENING SERVICE </label></td>
+				<td><input type="text" placeholder="Value can be either -1 or 1" required style="background-color:BBF9EE;border:0.5px solid;width:300;height:35;" name="c3">
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td style="border:1.5px solid"><label>HAVING '@' SYMBOL </label></td>
+				<td><input type="text" placeholder="Value can be either -1 or 1" required style="border:0.5px solid;width:300;height:35;" name="c4">
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td bgcolor="5BDFE6" style="border:1.5px solid"><label>DOUBLE SLASH REDIRECTING </label></td>
+				<td><input type="text" placeholder="Value can be either -1 or 1" required style="background-color:BBF9EE;border:0.5px solid;width:300;height:35;" name="c5">
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td style="border:1.5px solid"><label>PREFIX SUFFIX </label></td>
+				<td><input type="text" placeholder="Value can be either -1 or 1" required style="border:0.5px solid;width:300;height:35;" name="c6">
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td bgcolor="5BDFE6" style="border:1.5px solid"><label>HAVING SUB DOMAIN </label></td>
+				<td><input type="text" placeholder="Value can be either -1, 0 or 1" required style="background-color:BBF9EE;border:0.5px solid;width:300;height:35;" name="c7">
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td style="border:1.5px solid"><label>SSL FINAL STATE </label></td>
+				<td><input type="text" placeholder="Value can be either -1, 0 or 1" required style="border:0.5px solid;width:300;height:35;" name="c8">
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td bgcolor="5BDFE6" style="border:1.5px solid"><label>DOMAIN REGISTRATION LENGTH </label></td>
+				<td><input type="text" placeholder="Value can be either -1 or 1" required style="background-color:BBF9EE;border:0.5px solid;width:300;height:35;" name="c9">
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td style="border:1.5px solid"><label>FAVICON </label></td>
+				<td><input type="text" placeholder="Value can be either -1 or 1" required style="border:0.5px solid;width:300;height:35;" name="c10">
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td bgcolor="5BDFE6" style="border:1.5px solid"><label>PORT </label></td>
+				<td><input type="text" placeholder="Value can be either -1 or 1" required style="background-color:BBF9EE;border:0.5px solid;width:300;height:35;" name="c11">
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td style="border:1.5px solid"><label>HTTPS TOKEN </label></td>
+				<td><input type="text" placeholder="Value can be either -1 or 1" required style="border:0.5px solid;width:300;height:35;" name="c12">
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td bgcolor="5BDFE6" style="border:1.5px solid"><label>REQUEST URL </label></td>
+				<td><input type="text" placeholder="Value can be either -1 or 1" required style="background-color:BBF9EE;border:0.5px solid;width:300;height:35;" name="c13">
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td style="border:1.5px solid"><label>URL OF ANCHOR </label></td>
+				<td><input type="text" placeholder="Value can be either -1, 0 or 1" required style="border:0.5px solid;width:300;height:35;" name="c14">
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td bgcolor="5BDFE6" style="border:1.5px solid"><label>LINKS IN TAGS </label></td>
+				<td><input type="text" placeholder="Value can be either -1, 0 or 1" required style="background-color:BBF9EE;border:0.5px solid;width:300;height:35;" name="c15">
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td style="border:1.5px solid"><label>SFH </label></td>
+				<td><input type="text" placeholder="Value can be either -1, 0 or 1" required style="border:0.5px solid;width:300;height:35;" name="c16">
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td bgcolor="5BDFE6" style="border:1.5px solid"><label>SUBMITTING TO EMAIL </label></td>
+				<td><input type="text" placeholder="Value can be either -1 or 1" required style="background-color:BBF9EE;border:0.5px solid;width:300;height:35;" name="c17">
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td style="border:1.5px solid"><label>ABNORMAL URL </label></td>
+				<td><input type="text" placeholder="Value can be either -1 or 1" required style="border:0.5px solid;width:300;height:35;" name="c18">
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td bgcolor="5BDFE6" style="border:1.5px solid"><label>REDIRECT </label></td>
+				<td><input type="text" placeholder="Value can be either 0 or 1" required style="background-color:BBF9EE;border:0.5px solid;width:300;height:35;" name="c19">
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td style="border:1.5px solid"><label>ON MOUSEOVER </label></td>
+				<td><input type="text" placeholder="Value can be either -1 or 1" required style="border:0.5px solid;width:300;height:35;" name="c20">
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td bgcolor="5BDFE6" style="border:1.5px solid"><label>RIGHT CLICK </label></td>
+				<td><input type="text" placeholder="Value can be either -1 or 1" required style="background-color:BBF9EE;border:0.5px solid;width:300;height:35;" name="c21">
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td style="border:1.5px solid"><label>POP UP WINDOW </label></td>
+				<td><input type="text" placeholder="Value can be either -1 or 1" required style="border:0.5px solid;width:300;height:35;" name="c22">
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td bgcolor="5BDFE6" style="border:1.5px solid"><label>IFRAME </label></td>
+				<td><input type="text" placeholder="Value can be either -1 or 1" required style="background-color:BBF9EE;border:0.5px solid;width:300;height:35;" name="c23">
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td style="border:1.5px solid"><label>AGE OF DOMAIN </label></td>
+				<td><input type="text" placeholder="Value can be either -1 or 1" required style="border:0.5px solid;width:300;height:35;" name="c24">
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td bgcolor="5BDFE6" style="border:1.5px solid"><label>DNS RECORD </label></td>
+				<td><input type="text" placeholder="Value can be either -1 or 1" required style="background-color:BBF9EE;border:0.5px solid;width:300;height:35;" name="c25">
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td style="border:1.5px solid"><label>WEB TRAFFIC </label></td>
+				<td><input type="text" placeholder="Value can be either -1, 0 or 1" required style="border:0.5px solid;width:300;height:35;" name="c26">
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td bgcolor="5BDFE6" style="border:1.5px solid"><label>PAGE RANK </label></td>
+				<td><input type="text" placeholder="Value can be either -1 or 1" required style="background-color:BBF9EE;border:0.5px solid;width:300;height:35;" name="c27">
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td style="border:1.5px solid"><label>GOOGLE INDEX </label></td>
+				<td><input type="text" placeholder="Value can be either -1 or 1" required style="border:0.5px solid;width:300;height:35;" name="c28">
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td bgcolor="5BDFE6" style="border:1.5px solid"><label>LINKS POINTING TO PAGE </label></td>
+				<td><input type="text" placeholder="Value can be either -1, 0 or 1" required style="background-color:BBF9EE;border:0.5px solid;width:300;height:35;" name="c29">
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td style="border:1.5px solid"><label>STATISTICAL REPORT </label></td>
+				<td><input type="text" placeholder="Value can be either -1 or 1" required style="border:0.5px solid;width:300;height:35;" name="c30">
+				</td>
+				<td></td>
+			</tr>
+		</table>
+		<br>
+		<center><b>{{showcase}}</b></center>
+		<br>
+		<table align="center">
+			<th><input type="submit" value="CHECK" class="btn btn-info btn-lg " id="btn-predict"></th>
+		</table>
+		</form>
+<br><br>
+<div class="footer">
+  <p>TEAM - 69 PROJECT</p>
+</div>
+</body>
+</html>
